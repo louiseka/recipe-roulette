@@ -83,6 +83,7 @@ label {
     border-bottom: 1px solid #202427;
     padding: 10px 10px;
     cursor: pointer;
+
 }
 
 .radio:first-child {
@@ -94,6 +95,13 @@ label {
     border-bottom: 0;
     border-bottom-left-radius: 5px;
     border-bottom-right-radius: 5px;
+}
+
+.highlight {
+    background-color: #087E8B;
+    color: #FAF9F9;
+    font-weight: 600;
+    accent-color: #011f23;
 }
 
 button {
@@ -124,7 +132,7 @@ button:active {
     box-shadow: 0px 0px 5px #011f23;
     background-color: #e9f2f3;
     border-radius: 8px;
-    display: none;
+    display: flex;
     position: fixed;
     justify-content: center;
     align-items: center;

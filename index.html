@@ -5,29 +5,78 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Recipe Roulette</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100..900;1,100..900&display=swap"
+        rel="stylesheet">
 </head>
 
 
 
 <body>
     <header>
-        <img class="logo" src="./Assets/DishDiairies-Logo.svg" alt="A graphic of a fork and knife">
-        <h1> Recipe Roulette</h1>
+        <div class="inner-header">
+            <img class="logo" src="./Assets/DishDiairies-Logo.svg" alt="A graphic of a fork and knife">
+            <h1> Recipe Roulette</h1>
+        </div>
     </header>
 
     <main>
-        <h2> Let chance choose your next meal</h2>
-        <p>Stuck on what to have for dinner? Select a cusine below to get a random recipe to try! </p>
+        <div class="container">
+            <h2> Let chance choose your next meal</h2>
+            <p>Stuck on what to have for dinner? Select a cuisine below to get a random recipe to try! </p>
+            <div class="cuisine-radios">
+
+                <div class="radio">
+                    <label for="italian"> Italian </label>
+                    <input id="italian" value="italian" type="radio" name="cuisine-choices">
+                </div>
+                <div class="radio">
+                    <label for="american"> American </label>
+                    <input id="american" value="american" type="radio" name="cuisine-choices">
+                </div>
+                <div class="radio">
+                    <label for="japanese"> Japanese </label>
+                    <input id="japanese" value="japanese" type="radio" name="cuisine-choices">
+                </div>
+                <div class="radio">
+                    <label for="french"> French </label>
+                    <input id="french" value="french" type="radio" name="cuisine-choices">
+                </div>
+                <div class="radio">
+                    <label for="english"> English </label>
+                    <input id="english" value="english" type="radio" name="cuisine-choices">
+                </div>
+                <div class="radio">
+                    <label for="indian"> Indian </label>
+                    <input id="indian" value="indian" type="radio" name="cuisine-choices">
+                </div>
+                <div class="radio">
+                    <label for="korean"> Korean </label>
+                    <input id="korean" value="korean" type="radio" name="cuisine-choices">
+                </div>
+
+            </div>
+        </div>
+
         <button class="get-recipe-btn" id="get-recipe-btn"> Get random recipe</button>
+        </div>
     </main>
 
     <div class="recipe-modal" id="recipe-modal">
 
-        <button class="recipe-modal-close-btn" id="recipe-modal-close-btn"></button>
-        <div id="recipe-modal-inner"></div>
+        <button class="recipe-modal-close-btn" id="recipe-modal-close-btn">X</button>
+        <div class="recipe-modal-inner" id="recipe-modal-inner">
+            <img class="recipe-img" src="./Assets/Udon Noodles.png">
+            <h3> Udon Noodles</h3>
+            <p> This is a short sentence.This is a short sentence. </p>
+            <a href="#">Get the recipe</a>
+        </div>
 
     </div>
 
 </body>
+<script src="script.js"></script>
 
 </html>

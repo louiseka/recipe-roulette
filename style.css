@@ -8,7 +8,165 @@ html {
     box-sizing: inherit;
 }
 
+/*Layout*/
+
 body {
     margin: 0;
     color: #202427;
+    font-family: "Montserrat", sans-serif;
+    background-color: #F5F5F5;
+}
+
+main,
+.inner-header {
+    width: 400px;
+    margin: 0 auto;
+}
+
+/*Header*/
+
+header {
+    background-color: #087E8B;
+    margin-bottom: 30px;
+}
+
+.inner-header {
+    display: flex;
+    align-items: center;
+
+}
+
+.logo {
+    max-width: 150px;
+
+}
+
+/*Typography*/
+
+h1 {
+    font-size: 28px;
+    text-align: center;
+    color: #FAF9F9;
+    font-weight: 700;
+}
+
+h2 {
+    margin: 0;
+}
+
+/*Main content*/
+
+.container {
+    margin: 0 auto;
+    width: 400px;
+    display: flex;
+    flex-direction: column;
+}
+
+label {
+    width: 100%;
+    cursor: pointer;
+}
+
+.cuisine-radios {
+    border: 1px solid #202427;
+    border-radius: 8px;
+    display: flex;
+    flex-direction: column;
+    margin: 25px auto 0;
+    width: 250px;
+}
+
+.radio {
+    display: flex;
+    align-items: center;
+    border-bottom: 1px solid #202427;
+    padding: 10px 10px;
+    cursor: pointer;
+}
+
+.radio:first-child {
+    border-top-left-radius: 5px;
+    border-top-right-radius: 5px;
+}
+
+.radio:last-child {
+    border-bottom: 0;
+    border-bottom-left-radius: 5px;
+    border-bottom-right-radius: 5px;
+}
+
+button {
+    cursor: pointer;
+    background-color: #087E8B;
+    color: #FAF9F9;
+    font-size: 22px;
+    padding: 15px 25px;
+    border: 0;
+    border-radius: 8px;
+    margin: 30px auto 0;
+    display: block;
+    font-family: "Montserrat", sans-serif;
+    font-weight: 600;
+}
+
+button:hover,
+button:focus,
+button:active {
+    box-shadow: 0px 0px 5px #087E8B;
+}
+
+/*Modal*/
+
+.recipe-modal {
+    width: 420px;
+    height: 490px;
+    box-shadow: 0px 0px 5px #011f23;
+    background-color: #e9f2f3;
+    border-radius: 8px;
+    display: none;
+    position: fixed;
+    justify-content: center;
+    align-items: center;
+    margin: auto;
+    top: 180px;
+    left: 0;
+    right: 0;
+}
+
+.recipe-modal-inner {
+    max-width: 320px;
+}
+
+.recipe-modal-close-btn {
+    position: absolute;
+    top: 0%;
+    right: 4%;
+    font-size: 16px;
+    padding: 4px 8px;
+    border-radius: 50%;
+    border: #087E8B 1px solid;
+    font-weight: 700;
+    color: #087E8B;
+    background-color: transparent;
+}
+
+.recipe-modal-close-btn:hover,
+.recipe-modal-close-btn:focus,
+.recipe-modal-close-btn:active {
+    background-color: #087E8B;
+    color: #FAF9F9;
+}
+
+.recipe-img {
+    max-width: 320px;
+    max-height: 400px;
+    border-radius: 8px;
+    margin: 0 auto;
+}
+
+a {
+    color: #202427;
+    font-weight: 500;
+    cursor: pointer;
 }

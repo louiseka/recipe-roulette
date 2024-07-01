@@ -178,3 +178,17 @@ a {
     font-weight: 500;
     cursor: pointer;
 }
+
+@media screen and (max-width:400px) {
+
+    h2,
+    p {
+        margin: 5px 10px;
+    }
+
+    .recipe-modal {
+        width: 390px;
+        height: 460px;
+    }
+
+}

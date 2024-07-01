@@ -23,7 +23,7 @@ export const recipeData = [
         recipeTags: ["Italian"],
         quickRecipe: false,
         recipeName: "Tiramisu",
-        recipeDescription: "A coffee lovers favourite dessert",
+        recipeDescription: "A coffee lovers favourite dessert.",
         recipeLink: "https://bakewithzoha.com/best-classic-italian-tiramisu/",
         image: "./Assets/Tiramisu.jpg",
         alt: "A plate of Tiramisu with a fork about to cut into it"
@@ -44,7 +44,7 @@ export const recipeData = [
         recipeTags: ["American"],
         quickRecipe: false,
         recipeName: "Buttermilk Fried Chicken Tenders ",
-        recipeDescription: "Not KFC's secret spice mix, but better",
+        recipeDescription: "Not KFC's secret spice mix, but better.",
         recipeLink: "https://www.onceuponachef.com/recipes/buttermilk-fried-chicken-tenders-2.html",
         image: "./Assets/Chicken-Tenders.jpg",
         alt: "A plated of chicken tenders and chips"
@@ -126,7 +126,7 @@ export const recipeData = [
         recipeTags: ["Indian"],
         quickRecipe: true,
         recipeName: "Onion Bahji",
-        recipeDescription: "Fried to crispy perfection",
+        recipeDescription: "Fried to crispy perfection.",
         recipeLink: "https://www.kitchensanctuary.com/onion-bhaji/",
         image: "./Assets/Onion-Bahji.jpg",
         alt: "A bowl of onion bahjis"
@@ -136,7 +136,7 @@ export const recipeData = [
         recipeTags: ["Korean"],
         quickRecipe: false,
         recipeName: "Bibimbap",
-        recipeDescription: "A beloved Korean dish to many people",
+        recipeDescription: "A beloved Korean dish to many people.",
         recipeLink: "https://mykoreankitchen.com/bibimbap-korean-mixed-rice-with-meat-and-assorted-vegetables/",
         image: "./Assets/Bibimbap.jpg",
         alt: "A bowl of Bibimbap"
@@ -147,7 +147,7 @@ export const recipeData = [
         recipeTags: ["Korean"],
         quickRecipe: true,
         recipeName: "Tteokbokki",
-        recipeDescription: "There's always room for more of these spicy rice cakes",
+        recipeDescription: "There's always room for more of these spicy rice cakes.",
         recipeLink: "https://mykoreankitchen.com/tteokbokki-spicy-rice-cakes/",
         image: "./Assets/Tteokbokki.jpg",
         alt: "A bowl of Tteokbokki"

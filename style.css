@@ -181,14 +181,20 @@ a {
 
 @media screen and (max-width:400px) {
 
+    h1,
     h2,
-    p {
+    .container p {
         margin: 5px 10px;
     }
 
     .recipe-modal {
-        width: 390px;
-        height: 460px;
+        width: 380px;
+        height: 450px;
+    }
+
+    .recipe-img {
+        max-width: 290px;
+        max-height: 370px;
     }
 
 }

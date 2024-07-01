@@ -5,14 +5,14 @@ const recipeModal = document.getElementById("recipe-modal")
 
 
 
-//Close the modal button
+//Close the modal button -- TO ADD - Modal closes when you click anywhere on the page
 recipeModalCloseBtn.addEventListener("click", closeModal)
 
 function closeModal() {
     recipeModal.style.display = 'none'
 }
 
-//Open the modal
+//Open the modal-- TO ADD -- Modal only opens when the radio is selected
 
 getRecipeBtn.addEventListener("click", getRecipe)
 

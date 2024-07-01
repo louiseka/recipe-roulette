@@ -132,7 +132,7 @@ button:active {
     box-shadow: 0px 0px 5px #011f23;
     background-color: #e9f2f3;
     border-radius: 8px;
-    display: flex;
+    display: none;
     position: fixed;
     justify-content: center;
     align-items: center;

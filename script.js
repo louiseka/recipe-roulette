@@ -75,6 +75,8 @@ function makeRecipeElement(recipeTitle, recipeDesc, recipeUrl) {
     const link = document.createElement('a')
     link.textContent = linkText
     link.href = recipeUrl
+    link.target = "_blank"
+    link.rel = "nopener noreferrer nofollow"
 
     return [name, description, link]
 

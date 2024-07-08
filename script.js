@@ -90,7 +90,7 @@ function renderRecipe() {
 
     const recipeImage = makeImage(recipeObject.image, recipeObject.alt, "recipe-img")
     const [name, description, link] = makeRecipeElement(recipeObject.recipeName, recipeObject.recipeDescription, recipeObject.recipeLink)
-
+    recipeInnerModal.replaceChildren()
     recipeInnerModal.appendChild(recipeImage)
     recipeInnerModal.appendChild(name)
     recipeInnerModal.appendChild(description)
@@ -151,7 +151,7 @@ function renderCuisinesRadios(recipes) {
         const radioContainer = createRadioButton(cuisine)
         radioItems.push(radioContainer)
     }
-    cuisineRadios.append(...radioItems)
+    cuisineRadios.replaceChildren(...radioItems)
 }
 
 

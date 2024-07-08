@@ -8,7 +8,7 @@ const recipeModal = document.getElementById("recipe-modal")
 const recipeInnerModal = document.getElementById("recipe-modal-inner")
 
 
-//Close the modal button -- TO ADD - Modal closes when you click anywhere on the page
+//Close the modal button 
 recipeModalCloseBtn.addEventListener("click", closeModal)
 document.addEventListener("keydown", function (e) {
     if (e.key === "Escape") {
@@ -20,7 +20,7 @@ function closeModal() {
     recipeModal.style.display = 'none'
 }
 
-//Open the modal-- TO ADD -- Modal only opens when the radio is selected
+//Open the modal
 
 getRecipeBtn.addEventListener("click", renderRecipe)
 
@@ -51,6 +51,32 @@ function getSingleRecipeObject() {
         const randomNumber = Math.floor(Math.random() * recipesArray.length)
         return recipesArray[randomNumber]
     }
+}
+
+//Create elements instead of innerHtml for recipe
+
+function makeImage(src, alt, className) {
+    const image = document.createElement('img')
+    image.src = src
+    image.alt = alt
+    image.classList.add(className)
+    return image
+}
+
+function makeRecipeElement(recipeTitle, recipeDesc, recipeUrl) {
+
+    const name = document.createElement('h3')
+    name.textContent = recipeTitle
+
+    const description = document.createElement('p')
+    description.textContent = recipeDesc
+
+    const linkText = "Get the recipe"
+    const link = document.createElement('a')
+    link.textContent = linkText
+    link.href = recipeUrl
+
+    return [name, description, link]
 
 }
 
@@ -59,10 +85,14 @@ function renderRecipe() {
     if (recipeObject === undefined) {
         return
     }
-    recipeInnerModal.innerHTML = `<img class="recipe-img" src=${recipeObject.image} >
-            <h3>${recipeObject.recipeName}</h3>
-            <p> ${recipeObject.recipeDescription} </p>
-            <a href=${recipeObject.recipeLink}>Get the recipe</a>`
+
+    const recipeImage = makeImage(recipeObject.image, recipeObject.alt, "recipe-img")
+    const [name, description, link] = makeRecipeElement(recipeObject.recipeName, recipeObject.recipeDescription, recipeObject.recipeLink)
+
+    recipeInnerModal.appendChild(recipeImage)
+    recipeInnerModal.appendChild(name)
+    recipeInnerModal.appendChild(description)
+    recipeInnerModal.appendChild(link)
 
     recipeModal.style.display = 'flex'
 
@@ -87,23 +117,40 @@ function getCuisinesArray(recipes) {
     return cuisineArray
 }
 
+//Creat elements instead of innerhtml for radio 
+
+function createRadioButton(cuisineType) {
+
+    const radioLabel = document.createElement('label')
+    radioLabel.textContent = cuisineType
+    radioLabel.htmlFor = cuisineType
+
+    const radioInput = document.createElement('input')
+    radioInput.type = "radio"
+    radioInput.id = cuisineType
+    radioInput.value = cuisineType
+    radioInput.name = "cuisine-choices"
+
+    const radioInputContainer = document.createElement('div')
+    radioInputContainer.classList.add('radio')
+    radioInputContainer.appendChild(radioLabel)
+    radioInputContainer.appendChild(radioInput)
+
+    return radioInputContainer
+}
 
 
 //Render the radio list from the data file
 function renderCuisinesRadios(recipes) {
-    let radioItems = ""
+    let radioItems = []
     const cuisines = getCuisinesArray(recipes)
 
     for (let cuisine of cuisines) {
-        radioItems += `<div class="radio">
-        <label for=${cuisine}> ${cuisine} </label>
-                    <input type="radio" id=${cuisine} value=${cuisine} name="cuisine-choices">
-                    </div>`
+        const radioContainer = createRadioButton(cuisine)
+        radioItems.push(radioContainer)
     }
-    cuisineRadios.innerHTML = radioItems
+    cuisineRadios.append(...radioItems)
 }
-
-
 
 
 //Highlight the selected radio option

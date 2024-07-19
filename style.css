@@ -59,6 +59,7 @@ h2 {
 
 .container {
     margin: 0 auto;
+    padding: 0 0.625em;
     width: 400px;
     display: flex;
     flex-direction: column;
@@ -182,12 +183,29 @@ a {
     cursor: pointer;
 }
 
-@media screen and (max-width:400px) {
+@media screen and (max-width:480px) {
+
+    h1 {
+        font-size: 1.5em;
+    }
+
+    h2 {
+        font-size: 1.25em;
+    }
 
     h1,
     h2,
     .container p {
         margin: 0.25em 0.5em;
+    }
+
+    .get-recipe-btn {
+        font-size: 18px;
+        width: 90%;
+    }
+
+    .logo {
+        max-width: 100px;
     }
 
     .recipe-modal {

@@ -7,54 +7,44 @@ const recipeModalCloseBtn = document.getElementById("recipe-modal-close-btn")
 const recipeModal = document.getElementById("recipe-modal")
 const recipeInnerModal = document.getElementById("recipe-modal-inner")
 
-
 //Close the modal button 
+function closeModal() {
+    recipeModal.style.display = 'none'
+}
+
 recipeModalCloseBtn.addEventListener("click", closeModal)
+
 document.addEventListener("keydown", function (e) {
     if (e.key === "Escape") {
         closeModal()
     }
 })
 
-function closeModal() {
-    recipeModal.style.display = 'none'
-}
-
-//Open the modal
-
-getRecipeBtn.addEventListener("click", renderRecipe)
-
 function getMatchingRecipesArray() {
-
     //selectedCuisine is the one with radio input selected
-    if (document.querySelector('input[type="radio"]:checked')) {
-        const selectedCuisine = document.querySelector('input[type="radio"]:checked').value
-
-
+    const selectedCuisine = document.querySelector('input[type="radio"]:checked')?.value
+    if (selectedCuisine) {
         //get recipes with selected Cuisines
-
         const matchingRecipesArray = recipeData.filter(function (matchingRecipe) {
             return matchingRecipe.recipeTags.includes(selectedCuisine)
         })
+        
         return matchingRecipesArray
     }
     return []
 }
 
-function getSingleRecipeObject() {
+function getRandomRecipeObject() {
     const recipesArray = getMatchingRecipesArray()
     if (recipesArray.length === 1) {
         return recipesArray[0]
-    }
-
-    else {
+    } else {
         const randomNumber = Math.floor(Math.random() * recipesArray.length)
         return recipesArray[randomNumber]
     }
 }
 
 //Create elements instead of innerHtml for recipe
-
 function makeImage(src, alt, className) {
     const image = document.createElement('img')
     image.src = src
@@ -64,26 +54,24 @@ function makeImage(src, alt, className) {
 }
 
 function makeRecipeElement(recipeTitle, recipeDesc, recipeUrl) {
-
     const name = document.createElement('h3')
     name.textContent = recipeTitle
 
     const description = document.createElement('p')
     description.textContent = recipeDesc
 
-    const linkText = "Get the recipe"
     const link = document.createElement('a')
-    link.textContent = linkText
+    link.textContent = "Get the recipe"
     link.href = recipeUrl
     link.target = "_blank"
     link.rel = "nopener noreferrer nofollow"
 
     return [name, description, link]
-
 }
 
+//Open the modal
 function renderRecipe() {
-    const recipeObject = getSingleRecipeObject()
+    const recipeObject = getRandomRecipeObject()
     if (recipeObject === undefined) {
         return
     }
@@ -97,20 +85,16 @@ function renderRecipe() {
     recipeInnerModal.appendChild(link)
 
     recipeModal.style.display = 'flex'
-
 }
 
-
-
-
+getRecipeBtn.addEventListener("click", renderRecipe)
 
 //Get the recipe tags in an array
 function getCuisinesArray(recipes) {
     const cuisineArray = []
 
-    for (let recipe of recipes) {
-
-        for (let cuisine of recipe.recipeTags) {
+    for (const recipe of recipes) {
+        for (const cuisine of recipe.recipeTags) {
             if (!cuisineArray.includes(cuisine)) {
                 cuisineArray.push(cuisine)
             }
@@ -120,9 +104,7 @@ function getCuisinesArray(recipes) {
 }
 
 //Creat elements instead of innerhtml for radio 
-
 function createRadioButton(cuisineType) {
-
     const radioLabel = document.createElement('label')
     radioLabel.textContent = cuisineType
     radioLabel.htmlFor = cuisineType
@@ -141,31 +123,27 @@ function createRadioButton(cuisineType) {
     return radioInputContainer
 }
 
-
 //Render the radio list from the data file
 function renderCuisinesRadios(recipes) {
     let radioItems = []
     const cuisines = getCuisinesArray(recipes)
 
-    for (let cuisine of cuisines) {
+    for (const cuisine of cuisines) {
         const radioContainer = createRadioButton(cuisine)
         radioItems.push(radioContainer)
     }
     cuisineRadios.replaceChildren(...radioItems)
 }
 
-
 //Highlight the selected radio option
-cuisineRadios.addEventListener("change", highlightSelectedOption)
-
 function highlightSelectedOption(e) {
     const radios = document.getElementsByClassName("radio")
-    for (let radio of radios) {
+    for (const radio of radios) {
         radio.classList.remove("highlight")
     }
     document.getElementById(e.target.id).parentElement.classList.add("highlight")
 }
 
-
+cuisineRadios.addEventListener("change", highlightSelectedOption)
 
 renderCuisinesRadios(recipeData)

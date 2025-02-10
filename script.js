@@ -9,30 +9,28 @@ const recipeInnerModal = document.getElementById("recipe-modal-inner")
 
 
 //Close the modal button 
+function closeModal() {
+    recipeModal.style.display = 'none'
+}
+
 recipeModalCloseBtn.addEventListener("click", closeModal)
+
 document.addEventListener("keydown", function (e) {
     if (e.key === "Escape") {
         closeModal()
     }
 })
 
-function closeModal() {
-    recipeModal.style.display = 'none'
-}
-
 //Open the modal
-
-getRecipeBtn.addEventListener("click", renderRecipe)
 
 function getMatchingRecipesArray() {
 
     //selectedCuisine is the one with radio input selected
-    if (document.querySelector('input[type="radio"]:checked')) {
-        const selectedCuisine = document.querySelector('input[type="radio"]:checked').value
 
+    const selectedCuisine = document.querySelector('input[type="radio"]:checked')?.value
 
+    if (selectedCuisine) {
         //get recipes with selected Cuisines
-
         const matchingRecipesArray = recipeData.filter(function (matchingRecipe) {
             return matchingRecipe.recipeTags.includes(selectedCuisine)
         })
@@ -41,7 +39,7 @@ function getMatchingRecipesArray() {
     return []
 }
 
-function getSingleRecipeObject() {
+function getRandomRecipeObject() {
     const recipesArray = getMatchingRecipesArray()
     if (recipesArray.length === 1) {
         return recipesArray[0]
@@ -71,9 +69,8 @@ function makeRecipeElement(recipeTitle, recipeDesc, recipeUrl) {
     const description = document.createElement('p')
     description.textContent = recipeDesc
 
-    const linkText = "Get the recipe"
     const link = document.createElement('a')
-    link.textContent = linkText
+    link.textContent = "Get the recipe"
     link.href = recipeUrl
     link.target = "_blank"
     link.rel = "nopener noreferrer nofollow"
@@ -82,8 +79,10 @@ function makeRecipeElement(recipeTitle, recipeDesc, recipeUrl) {
 
 }
 
+getRecipeBtn.addEventListener("click", renderRecipe)
+
 function renderRecipe() {
-    const recipeObject = getSingleRecipeObject()
+    const recipeObject = getRandomRecipeObject()
     if (recipeObject === undefined) {
         return
     }
@@ -100,17 +99,13 @@ function renderRecipe() {
 
 }
 
-
-
-
-
 //Get the recipe tags in an array
 function getCuisinesArray(recipes) {
     const cuisineArray = []
 
-    for (let recipe of recipes) {
+    for (const recipe of recipes) {
 
-        for (let cuisine of recipe.recipeTags) {
+        for (const cuisine of recipe.recipeTags) {
             if (!cuisineArray.includes(cuisine)) {
                 cuisineArray.push(cuisine)
             }
@@ -165,7 +160,5 @@ function highlightSelectedOption(e) {
     }
     document.getElementById(e.target.id).parentElement.classList.add("highlight")
 }
-
-
 
 renderCuisinesRadios(recipeData)
